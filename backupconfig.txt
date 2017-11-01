@@ -1,2 +1,2 @@
-G:\ljx\软件
+F:\信息平台环境\ArcGIS 10 Server
 I:\backup\backup

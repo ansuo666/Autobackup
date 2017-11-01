@@ -19,14 +19,14 @@ def backup(p1,p2):
         os.mkdir(today)
     try:
         start = time.time()
-        tar = tarfile.open(target,'w:gz')
-        for root,dir,files in os.walk(sourse[0]):
+        tar = tarfile.open(target,'w:gz')#创建备份文件
+        for root,dir,files in os.walk(sourse[0]):#检索要备份的文件夹下的所有文件
             for file in files:
                 full = os.path.join(root,file)
-                tar.add(full)
-        tar.close()
+                tar.add(full)#添加到备份文件中
+        tar.close()#关闭备份文件
         endtime = time.time() - start
-        if endtime > 60:
+        if endtime > 60:#调试信息，正式运行不显示
             mis = int(endtime/60)
             sen = endtime - (mis * 60)
             print('\n 用时:%d m %.3f s' % (mis,sen))
@@ -39,5 +39,5 @@ def backup(p1,p2):
     except:
         print('发生了一个错误导致归档失败！')
         result = 'failed'
-        print(sys.exc_info())
+        print(sys.exc_info())#抛出异常信息
         return result
